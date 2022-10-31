@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -15,15 +13,15 @@
     <main>
         <section class="at-arena">
 
-        <img src="/elephant/images/course.png" alt="" class="course">
+            <img src="images/course.png" alt="" class="course">
 
-        <div class="board">
+            <div class="board">
 
-        <a href="result.php" class="small-button">STARTA</a>
-        </div>
-    
-         <a href="stable.php" class="big-button">TILLBAKA TILL STALLET</a>
-    
+                <a href="result.php" class="small-button">STARTA</a>
+            </div>
+
+            <a href="stable.php" class="big-button">TILLBAKA TILL STALLET</a>
+
         </section>
     </main>
 </body>

@@ -67,11 +67,11 @@ $horses =
             ?>
 
             <section>
-                <img src="/elephant/images/pileOfCarrots.png" alt="" class="carrots">
+                <img src="images/pileOfCarrots.png" alt="" class="carrots">
                 <a href="index.php" class="medium-button">LÄMNA STALLET</a>
             </section>
             <section>
-                <img src="/elephant/images/groomkit.png" alt="" class="groomkit">
+                <img src="images/groomkit.png" alt="" class="groomkit">
                 <a href="arena.php" class="medium-button">TÄVLA</a>
             </section>
 
