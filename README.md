@@ -1,4 +1,4 @@
-![](https://media.giphy.com/media/1yMdcP8Xn4dYwqtzD5/giphy.gif)
+<img src="https://media.giphy.com/media/3Hm4TlhPjZu3C/giphy.gif" width="100%">
 
 # Siris Stable
 
