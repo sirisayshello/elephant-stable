@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-// Fetching the chosen horse from the array horses
+// Fetching the chosen horse from the given array horses
 function getHorseFromHorses(string $selectedHorse, array $horses): array
 {
 

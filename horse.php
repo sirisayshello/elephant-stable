@@ -26,12 +26,8 @@ if (isset($_GET['horse'])) {
 
 <body>
     <main>
-        <!-- We're hiding these messages for now. -->
-        <div class="horse-message">
-            <div class="hide-feed-message"><?php echo $feedMessage ?></div>
-            <div class="hide-groom-message"><?php echo $groomMessage ?></div>
-        </div>
 
+        <img src="images/ribbon1.png" alt="" class="ribbon1">
 
         <div class="at-horse">
             <?php
@@ -40,6 +36,10 @@ if (isset($_GET['horse'])) {
             if ($selectedHorse) {
 
             ?>
+                <!-- We're hiding these messages for now. -->
+                <div class="hide-feed-message feed-message"><?php echo $feedMessage ?></div>
+                <div class="hide-groom-message groom-message"><?php echo $groomMessage ?></div>
+
                 <img src="<?php echo $selectedHorse['picture'] ?>" alt="<?php echo $selectedHorse['alt'] ?>" class="horse-picture">
                 <article class="about-horse">
                     <h1> <?php echo $selectedHorse['name']; ?> </h1>
@@ -49,6 +49,7 @@ if (isset($_GET['horse'])) {
                         <li>Färg: <?php echo $selectedHorse['color']; ?></li>
                         <li>Ras: <?php echo $selectedHorse['breed']; ?></li>
                     </ul>
+                    <p><?php echo $selectedHorse['about']; ?></p>
                 </article>
             <?php
 
@@ -56,18 +57,18 @@ if (isset($_GET['horse'])) {
             ?>
 
             <!-- Buttons to show hidden messages with javascript funtions. -->
-            <input type="button" id="mata" value="MATA" onclick="showFeedMessage()" class="medium-button" />
-            <input type="button" id="borsta" value="BORSTA" onclick="showGroomMessage()" class="medium-button" />
+            <input type="button" id="mata" value="MATA" onclick="showFeedMessage()" class="feed-button" />
+            <input type="button" id="borsta" value="BORSTA" onclick="showGroomMessage()" class="groom-button" />
 
             <a href="stable.php" class="big-button">TILLBAKA TILL STALLET</a>
         </div>
 
-
+        <img src="images/ribbon2.png" alt="" class="ribbon2">
 
     </main>
 
-    <!-- Functions that remove the elements that are hiding the messages. -->
-    <script type='text/JavaScript'>
+    <!-- Functions that remove the classes that are hiding the messages. -->
+    <script type='text/javascript'>
         const feedMessage = document.querySelector('.hide-feed-message');
         const showFeedMessage = () => {
             feedMessage.classList.remove('hide-feed-message');
