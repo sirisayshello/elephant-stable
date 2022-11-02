@@ -1,12 +1,35 @@
-INSERT MANDATORY GIF
+![](https://media.giphy.com/media/1yMdcP8Xn4dYwqtzD5/giphy.gif)
 
-# Project Title
+# Siris Stable
 
-Text about the project and why it exists. This would also be a great place to link the project on One.com.
+The elephpant in the room — or the horses in the stable. This project is testing how far I've come on my way to becoming a fullblown fullstack web developer! Starting with some PHP, HTML, CSS and just a little sprinkle of JavaScript.
+
+To pet some horses and test your random skills in showjumping:
+[Siris Stable](https://sirisjolin.se/siris-stable)
 
 # Installation
 
-Add the installation instructions.
+1. Clone the repo in the terminal or your client of choice.
+
+```bash
+$ git clone https://github.com/sirisayshello/elephpant-stable.git
+```
+
+2. Install php.
+
+```bash
+$ brew install php
+```
+
+3. Start a server in the root folder.
+
+```bash
+$ php -S localhost:8000
+```
+
+4. Navigate to http://localhost:8000 in your browser.
+
+5. Play with horses.
 
 # Code Review
 
