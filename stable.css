@@ -28,7 +28,7 @@ a {
   margin: auto;
   background-color: #a68763;
   height: 12rem;
-  width: 9rem;
+  width: 12rem;
   border-radius: 0.5rem;
 }
 
@@ -49,13 +49,32 @@ a {
 }
 
 .carrots {
-  margin: auto;
-  width: 7rem;
+  margin-left: auto;
+  width: 11rem;
 }
 
 .groomkit {
-  margin: auto;
-  height: 6rem;
+  margin-right: auto;
+  height: 10rem;
+}
+
+@media screen and (max-width: 900px) {
+  .horse-box {
+    margin: auto;
+    background-color: #a68763;
+    height: 12rem;
+    width: 9rem;
+    border-radius: 0.5rem;
+  }
+  .carrots {
+    margin: auto;
+    width: 7rem;
+  }
+
+  .groomkit {
+    margin: auto;
+    height: 6rem;
+  }
 }
 
 .small-button {

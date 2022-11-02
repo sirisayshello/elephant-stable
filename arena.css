@@ -81,12 +81,28 @@ a {
   grid-area: 4 / 1 / 5 / span 2;
 }
 
+.choose-horse label:hover,
+input:hover,
+button:hover {
+  cursor: pointer;
+}
+
 .svg-tree1 {
-  margin-top: auto;
-  margin-left: 1rem;
+  margin-left: 30%;
 }
 
 .svg-tree2 {
-  margin-left: auto;
-  margin-right: 1rem;
+  margin-left: 50%;
+}
+
+@media screen and (max-width: 700px) {
+  .svg-tree1 {
+    margin-top: auto;
+    margin-left: 1rem;
+  }
+
+  .svg-tree2 {
+    margin-left: auto;
+    margin-right: 1rem;
+  }
 }
