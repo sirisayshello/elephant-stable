@@ -2,53 +2,10 @@
 
 declare(strict_types=1);
 
+require __DIR__ . '/functions.php';
+require __DIR__ . '/variables.php';
 
-$horses =
-    [
-        [
-            'name' => 'Angel',
-            'age' => 15,
-            'color' => 'Skäck',
-            'breed' => 'Irländsk Sporthäst',
-            'picture' => 'https://www5.idrottonline.se/globalassets/goteborgs-fk---ridsport/hastar/_dsc9698.jpg?w=481&h=320'
-        ],
-        [
-            'name' => 'Jasmine',
-            'age' => 13,
-            'color' => 'Skimmel',
-            'breed' => 'Svenskt Varmblod',
-            'picture' => 'https://www5.idrottonline.se/globalassets/goteborgs-fk---ridsport/hastar/jasmine.jpg?w=205&h=364'
-        ],
-        [
-            'name' => 'Lincoln',
-            'age' => 13,
-            'color' => 'Brun',
-            'breed' => 'Oldenburgare',
-            'picture' => 'https://www5.idrottonline.se/globalassets/goteborgs-fk---ridsport/hastar/_dsc0652.jpg?w=481&h=320'
-        ],
-        [
-            'name' => 'Quincy',
-            'age' => 17,
-            'color' => 'Skimmel',
-            'breed' => 'Holsteiner',
-            'picture' => 'https://www5.idrottonline.se/globalassets/goteborgs-fk---ridsport/hastar/_dsc9341.jpg?w=252&h=380'
-        ]
-    ];
-
-
-function getHorseFromHorses(string $selectedHorse, array $horses): array {
-
-    foreach ($horses as $horse){
-        if ($horse['name'] === $selectedHorse){
-            return $horse;
-        }
-    }
-
-    // Default to Angel
-    return $horses[0];
-}
-
-
+// If a horse is set from the previous page, fetch that horse's information from the array horses.
 if (isset($_GET['horse'])) {
     $selectedHorse = getHorseFromHorses($_GET['horse'], $horses);
 }
@@ -57,30 +14,38 @@ if (isset($_GET['horse'])) {
 
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="sv">
 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="horse.css">
-    <title>Document</title>
+    <title><?php echo "$pageTitle | $selectedHorse[name]" ?></title>
 </head>
 
 <body>
     <main>
-        <section class="at-horse">
+        <!-- We're hiding these messages for now. -->
+        <div class="horse-message">
+            <div class="hide-feed-message"><?php echo $feedMessage ?></div>
+            <div class="hide-groom-message"><?php echo $groomMessage ?></div>
+        </div>
 
+
+        <div class="at-horse">
             <?php
 
+            // If a horse is selected, render out that horse's information.
             if ($selectedHorse) {
-                
+
             ?>
-                <img src="<?php echo $selectedHorse['picture'] ?>" alt="" class="horse-picture">
+                <img src="<?php echo $selectedHorse['picture'] ?>" alt="<?php echo $selectedHorse['alt'] ?>" class="horse-picture">
                 <article class="about-horse">
-                    <p> <?php echo $selectedHorse['name']; ?> </p>
+                    <h1> <?php echo $selectedHorse['name']; ?> </h1>
                     <ul>
-                        <li>Ålder: <?php echo $selectedHorse['age']; ?></li>
+                        <li>Ålder: <?php echo getHorseAge($selectedHorse['birthYear']); ?></li>
+                        <li>Mankhöjd: <?php echo $selectedHorse['height']; ?></li>
                         <li>Färg: <?php echo $selectedHorse['color']; ?></li>
                         <li>Ras: <?php echo $selectedHorse['breed']; ?></li>
                     </ul>
@@ -89,14 +54,30 @@ if (isset($_GET['horse'])) {
 
             }
             ?>
-            <a href="" class="medium-button">BORSTA</a>
-            <a href="" class="medium-button">MATA</a>
+
+            <!-- Buttons to show hidden messages with javascript funtions. -->
+            <input type="button" id="mata" value="MATA" onclick="showFeedMessage()" class="medium-button" />
+            <input type="button" id="borsta" value="BORSTA" onclick="showGroomMessage()" class="medium-button" />
+
             <a href="stable.php" class="big-button">TILLBAKA TILL STALLET</a>
-        </section>
+        </div>
 
 
 
     </main>
+
+    <!-- Functions that remove the elements that are hiding the messages. -->
+    <script type='text/JavaScript'>
+        const feedMessage = document.querySelector('.hide-feed-message');
+        const showFeedMessage = () => {
+            feedMessage.classList.remove('hide-feed-message');
+        }
+
+        const groomMessage = document.querySelector('.hide-groom-message');
+        const showGroomMessage = () => {
+            groomMessage.classList.remove('hide-groom-message');
+        }
+    </script>
 </body>
 
 </html>
