@@ -1,48 +1,57 @@
-<?php declare(strict_types=1);
+<?php
 
-function competeWithHorse(): array
-{
-    $competitionResult =
-        [
-            ['placed' => 1, 'message' => "VINST! Vilket team! Det behöver firas. Tillbaka till stallet för morötter och tårta!"],
-            ['placed' => 5, 'message' => "5:e placering, inte dåligt! Klappa om både dig själv och hästen!"],
-            ['placed' => 'Utesluten', 'message' => "Åh nej, du blev utesluten! Hästen kanske hade en dålig dag... Men det var troligtvis ditt fel. Tillbaka till stallet och öva mer!"]
-        ];
+declare(strict_types=1);
 
-    $result = $competitionResult[array_rand($competitionResult)];
+require __DIR__ . '/functions.php';
+require __DIR__ . '/variables.php';
 
-    return $result;
-}
-
-$result = competeWithHorse();
+// If a horse is chosen in the form, set that horse as the competing horse.
+if (isset($_POST['horse'])) {
+    $competingHorse = $_POST['horse'];
+    // Fetching different results with the competing horse.
+    $result = competeWithHorse($competingHorse);
+};
 
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="sv">
 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="result.css">
-    <title>Document</title>
+    <title><?php echo "$pageTitle | Tävling" ?></title>
 </head>
 
 <body>
     <main>
-        <section class="at-arena">
+        <div class="at-arena">
 
-        <img src="/elephant/images/course.png" alt="" class="course">
+            <img src="images/course.png" alt="A showjumping course." class="course">
 
-        <div class="board">
-        <h3>RESULTAT</h3>
-        <p><?php echo "$result[placed]. $result[message]" ?></p>
+            <div class="board">
+                <h2>RESULTAT</h2>
+                <div class="result">
+                    <p> <?php echo "$result[placed]." ?> </p>
+                </div>
+                <p><?php echo "$result[message]" ?> </p>
+            </div>
+
+            <svg class="svg-tree1" xmlns="http://www.w3.org/2000/svg" width="122" height="130" fill="none">
+                <path fill="#7B5F3E" d="M51 72h15l-1.8 20.88L66 130H48l3-18.85V72Z" />
+                <path fill="#648C4C" d="M47.835 7.326C25.08-4.25 11.987 8.499 11.987 16.712c-12.86 7.43-14.548 20.383-8.963 30.505-6.234 12.828 8.183 25.42 14.807 25.42 13.249 19.555 30.524 12.255 42.863 8.605 14.963 14.079 41.694-.782 42.862-11.342 16.834-2.816 15.847-18.381 13.249-25.812 16.21-17.833-9.741-36.762-20.262-31.678C78.774-7.3 56.667.808 47.835 7.326Z" />
+            </svg>
+
+            <svg class="svg-tree2" xmlns="http://www.w3.org/2000/svg" width="126" height="158" fill="none">
+                <path fill="#7B5F3E" d="M54.833 83H74l-2.3 27 2.3 48H51l3.833-24.375V83Z" />
+                <path fill="#648C4C" d="M73.157 6.796c-18.176-13.172-44.062-4.41-46.472 2.94-21.756 0-27.883 19.406-22.031 31.755-11.016 9.173 0 24.992 7.573 24.992C8.44 80.007 30.587 83.34 41.831 82.948c13.22 14.583 32.13 6.076 39.932 0 22.582 5.88 28.227-11.271 28.227-20.582 20.104-1.646 17.098-18.523 13.081-26.756 6.885-9.643-6.196-22.345-13.081-22.345C101.178-3.906 75.911.915 73.157 6.796Z" />
+            </svg>
+
+            <a href="stable.php" class="big-button">TILLBAKA TILL STALLET</a>
+
         </div>
-    
-         <a href="stable.php" class="big-button">TILLBAKA TILL STALLET</a>
-    
-        </section>
     </main>
 </body>
 
