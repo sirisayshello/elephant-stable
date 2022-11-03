@@ -47,5 +47,5 @@ Vilken mysig och rolig webbplats du har skapat! Tyckte att det var väldigt roli
 
 Tested by the following people:
 
-1. Jane Doe
-2. John Doe
+1. Anna Brumark
+2. Vali Al Osachi
