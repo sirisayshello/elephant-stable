@@ -33,13 +33,15 @@ $ php -S localhost:8000
 
 # Code Review
 
-Code review written by [Jane Doh](https://github.com/username).
+Code review written by [Robin Persson](https://github.com/Robinpn).
 
-1. `example.js:10-15` - Remember to think about X and this could be refactored using the amazing Y function.
-2. `example.js:10-15` - Remember to think about X and this could be refactored using the amazing Y function.
-3. `example.js:10-15` - Remember to think about X and this could be refactored using the amazing Y function.
-4. `example.js:10-15` - Remember to think about X and this could be refactored using the amazing Y function.
-5. `example.js:10-15` - Remember to think about X and this could be refactored using the amazing Y function.
+Vilken mysig och rolig webbplats du har skapat! Tyckte att det var väldigt roligt att gå igenom alla alternativen och se resultaten.
+
+1. `variables.php:11` - Här skulle du kunnat ha skrivit ut höjden som en int och lagt till cm som en string, isstället för att skriva ut allt som en string. Tycker att det blir lite lättare att förstå då
+2. `stable.php: 5` - Du behöver inte använda **DIR** utan det räcker med require.
+3. `horse.php: 60-61` - Istället för att använda onClick() kan du sätta en eventlistener i en js fil eller script tagen.
+4. `horse.php: 74 & 79` - Istället för att använda remove() hade du kunna använda toggle(). Funkar bättre om användaren vill bli av med texten eller testa funktionen igen.
+5. `horse.php: 71-81` - Du hade kunna läga dina js scripts i en separat fil isstället för att scriva in dem direkt i php filen. Jag tycker att koden blir lite "renare" då
 
 # Testers
 
